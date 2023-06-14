@@ -1,6 +1,5 @@
-package org.example.arraysAndHashing;
+package org.example.neetcode.arraysAndHashing;
 
-import leetcode.arraysAndHashing.LongestConsecutiveSequence;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

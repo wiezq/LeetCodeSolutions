@@ -1,4 +1,4 @@
-package leetcode.arraysAndHashing;
+package org.example.neetcode.arraysAndHashing;
 
 public class ProductOfArrayExceptSelf {
 

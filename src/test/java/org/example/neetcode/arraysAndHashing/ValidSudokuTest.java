@@ -1,6 +1,5 @@
-package org.example.arraysAndHashing;
+package org.example.neetcode.arraysAndHashing;
 
-import leetcode.arraysAndHashing.ValidSudoku;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
