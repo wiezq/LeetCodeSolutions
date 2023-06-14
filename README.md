@@ -2,7 +2,7 @@
 Problem solving on leetcode
 
 
-# Arrays and Hashin 
+# Arrays and Hashing
 [1. Two Sum - easy](https://github.com/wiezq/LeetCodeSolution/blob/main/src/main/java/leetcode/arraysAndHashing/TwoSum.java)<br>
 [217. Contains Duplicate - easy](https://github.com/wiezq/LeetCodeSolution/blob/main/src/main/java/leetcode/arraysAndHashing/ContainsDuplicate.java)<br>
 [242. Valid Anagram - easy](https://github.com/wiezq/LeetCodeSolution/blob/main/src/main/java/leetcode/arraysAndHashing/ValidAnagram.java)<br>
