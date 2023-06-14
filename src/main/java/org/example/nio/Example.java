@@ -33,7 +33,7 @@ public class Example {
         }
     }
 
-    private static List<File> splitFile(String inputFilePath, int chunkSize) throws IOException, IOException {
+    private static List<File> splitFile(String inputFilePath, int chunkSize) throws IOException {
         List<File> chunkFiles = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(inputFilePath));
         String line;
