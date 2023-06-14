@@ -1,6 +1,7 @@
 package org.example.neetcode.arraysAndHashing;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ValidAnagram {
 

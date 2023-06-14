@@ -1,9 +1,5 @@
 package org.example.leetcode.medium;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 public class IntegerToRoman {
     static String[] ONES = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
     static String[] TENS = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};

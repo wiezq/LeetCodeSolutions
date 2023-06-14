@@ -1,6 +1,7 @@
-package org.example;
+package org.example.game;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class TicTacToe {
 
