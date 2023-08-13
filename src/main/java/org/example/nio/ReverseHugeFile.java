@@ -1,18 +1,13 @@
 package org.example.nio;
 
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class ReverseHugeFile {
-
 
 
     public static void main(String[] args) throws IOException {
@@ -23,10 +18,10 @@ public class ReverseHugeFile {
         List<String> tempStrings = new ArrayList<>();
         int chunkBytes = 0;
         String s;
-        while ( (s = bufferedReader.readLine()) != null){
-            if(chunkBytes + s.getBytes(StandardCharsets.UTF_8).length > MAX_HEAP){
+        while ((s = bufferedReader.readLine()) != null) {
+            if (chunkBytes + s.getBytes(StandardCharsets.UTF_8).length > MAX_HEAP) {
                 Collections.reverse(tempStrings);
-                BufferedWriter chunkWriter = new BufferedWriter(new FileWriter(String.format("chunk%d",chunkCount)));
+                BufferedWriter chunkWriter = new BufferedWriter(new FileWriter(String.format("chunk%d", chunkCount)));
                 for (String tempString : tempStrings) {
                     chunkWriter.write(tempString);
                     chunkWriter.newLine();
@@ -45,19 +40,16 @@ public class ReverseHugeFile {
     }
 
 
-
-
-
-    public void reverseBigFile(String input){
+    public void reverseBigFile(String input) {
 
     }
 
-    public void createBigFile(){
+    public void createBigFile() {
         BufferedWriter bufferedWriter;
         try {
             bufferedWriter = new BufferedWriter(new FileWriter("input.txt"));
-            int max = (int) Math.pow(2,27);
-            for(int i = 0; i < max; i++){
+            int max = (int) Math.pow(2, 27);
+            for (int i = 0; i < max; i++) {
                 bufferedWriter.write(String.format("Line number: %d \n", i));
             }
             bufferedWriter.close();

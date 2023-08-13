@@ -1,10 +1,11 @@
 package org.example.neetcode.arraysAndHashing;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EncodeAndDecodeTest {
 
@@ -20,7 +21,7 @@ public class EncodeAndDecodeTest {
         List<String> input = List.of("lint", "code", "love", "you");
         String inputString = encodeAndDecode.encode(input);
         List<String> output = encodeAndDecode.decode(inputString);
-        Assertions.assertEquals(input, output);
+        assertEquals(input, output);
     }
 
     @Test
@@ -28,6 +29,6 @@ public class EncodeAndDecodeTest {
         List<String> input = List.of("we", "say", ":", "yes");
         String inputString = encodeAndDecode.encode(input);
         List<String> output = encodeAndDecode.decode(inputString);
-        Assertions.assertEquals(input, output);
+        assertEquals(input, output);
     }
 }

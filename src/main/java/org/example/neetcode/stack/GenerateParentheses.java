@@ -14,12 +14,12 @@ public class GenerateParentheses {
         return res;
     }
 
-    public void backtrack(int left, int right, String s){
-        if (left == right && right == max){
+    public void backtrack(int left, int right, String s) {
+        if (left == right && right == max) {
             res.add(s);
             return;
         }
-        if(left < max) backtrack(left + 1, right, s + "(");
+        if (left < max) backtrack(left + 1, right, s + "(");
         if (right < left) backtrack(left, right + 1, s + ")");
     }
 }

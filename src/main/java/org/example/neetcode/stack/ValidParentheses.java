@@ -17,15 +17,14 @@ public class ValidParentheses {
         for (Character c : str.toCharArray()) {
             if (c == '(' || c == '[' || c == '{') {
                 a.push(c);
-            } else if (!a.empty()){
+            } else if (!a.empty()) {
                 if (a.peek() == '(' && c == ')') {
                     a.pop();
                 } else if (a.peek() == '[' && c == ']') {
                     a.pop();
                 } else if (a.peek() == '{' && c == '}') {
                     a.pop();
-                }
-                else return false;
+                } else return false;
             } else return false;
         }
         return a.empty();

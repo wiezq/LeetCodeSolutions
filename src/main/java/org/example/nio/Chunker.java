@@ -14,8 +14,8 @@ public class Chunker {
         List<String> a = new ArrayList<>();
         int chunkCount = 0;
         String line;
-        while ((line = bf.readLine()) != null ){
-            if (a.size() == 500){
+        while ((line = bf.readLine()) != null) {
+            if (a.size() == 500) {
                 String outputname = "chunk" + chunkCount;
                 BufferedWriter b = new BufferedWriter(new FileWriter(outputname));
                 for (String s : a) {
@@ -26,7 +26,7 @@ public class Chunker {
             }
             a.add(line);
         }
-        if(a.size() > 0){
+        if (a.size() > 0) {
             String outputname = "chunk" + chunkCount;
             BufferedWriter b = new BufferedWriter(new FileWriter(outputname));
             for (String s : a) {

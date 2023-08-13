@@ -1,8 +1,9 @@
 package org.example.neetcode.stack;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class DailyTemperaturesTest {
     DailyTemperatures dt;
@@ -17,7 +18,7 @@ public class DailyTemperaturesTest {
         int[] input = new int[]{73,74,75,71,69,72,76,73};
         int[] result = dt.dailyTemperatures(input);
         int[] expected = new int[]{1,1,4,2,1,1,0,0};
-        Assertions.assertArrayEquals(expected, result);
+        assertArrayEquals(expected, result);
     }
 
     @Test
@@ -25,7 +26,7 @@ public class DailyTemperaturesTest {
         int[] input = new int[]{30,40,50,60};
         int[] result = dt.dailyTemperatures(input);
         int[] expected = new int[]{1,1,1,0};
-        Assertions.assertArrayEquals(expected, result);
+        assertArrayEquals(expected, result);
     }
 
     @Test
@@ -33,6 +34,6 @@ public class DailyTemperaturesTest {
         int[] input = new int[]{30,60,90};
         int[] result = dt.dailyTemperatures(input);
         int[] expected = new int[]{1,1,0};
-        Assertions.assertArrayEquals(expected, result);
+        assertArrayEquals(expected, result);
     }
 }

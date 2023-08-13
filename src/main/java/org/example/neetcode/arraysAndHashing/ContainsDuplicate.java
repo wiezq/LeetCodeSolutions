@@ -21,6 +21,7 @@ public class ContainsDuplicate {
      *
      * <p>Time complexity: O(n)</p>
      * <p>Space complexity: O(n)</p>
+     *
      * @param nums the array of integers to check for duplicates
      * @return true if the array contains any duplicate elements, false otherwise
      */

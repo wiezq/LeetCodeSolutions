@@ -13,8 +13,8 @@ public class FindTenMaxWordFromWeb2 {
     }
 
 
-    public static void printWords(){
-        try(Stream<String> lines = Files.lines(Paths.get("/usr/share/dict/web2"))) {
+    public static void printWords() {
+        try (Stream<String> lines = Files.lines(Paths.get("/usr/share/dict/web2"))) {
             lines
                     .filter(s -> s.length() > 20)
                     .sorted(Comparator.comparingInt(String::length).reversed())
@@ -25,10 +25,9 @@ public class FindTenMaxWordFromWeb2 {
         }
     }
 
-    public static void countWordFromDict(){
-        try(Stream<String> lines = Files.lines(Paths.get("/usr/share/dict/web2"))) {
+    public static void countWordFromDict() {
+        try (Stream<String> lines = Files.lines(Paths.get("/usr/share/dict/web2"))) {
             lines
-//                    .sorted(Comparator.comparingInt(String::length).reversed())
                     .collect(Collectors.groupingBy(String::length, Collectors.counting()))
                     .forEach((integer, aLong) -> System.out.printf("Length: %d Words: %d%n", integer, aLong));
 

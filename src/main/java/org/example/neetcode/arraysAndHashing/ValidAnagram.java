@@ -23,6 +23,7 @@ public class ValidAnagram {
      *
      * <p>Space complexity: O(n)</p>
      * <p>Time complexity: O(n)</p>
+     *
      * @param s the first string to check for anagrams
      * @param t the second string to check for anagrams
      * @return true if the two strings are anagrams, false otherwise
@@ -46,12 +47,12 @@ public class ValidAnagram {
         if (s.length() != t.length()) return false;
 
         int[] a = new int[26];
-        for(int i = 0; i < s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             a[s.charAt(i) - 97]++;
             a[t.charAt(i) - 97]--;
         }
 
-        for(int i = 0; i < 26   ; i++){
+        for (int i = 0; i < 26; i++) {
             if (a[i] != 0) return false;
         }
         return true;

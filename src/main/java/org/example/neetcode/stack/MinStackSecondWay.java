@@ -1,36 +1,35 @@
 package org.example.neetcode.stack;
 
 import java.util.Stack;
+
 //This way using node instead of second stack
 //of minimum integers spends a little bit more memory (47.2 MB compared to 47 MB referring to leetcode)
 public class MinStackSecondWay {
 
     Stack<Node> stack;
 
-    public MinStackSecondWay(){
+    public MinStackSecondWay() {
         stack = new Stack<>();
     }
 
-    static class Node{
+    static class Node {
         public int value;
         public int min;
 
-        Node(int value, int min){
+        Node(int value, int min) {
             this.value = value;
             this.min = min;
         }
     }
 
     public void push(int val) {
-        if(stack.empty()){
+        if (stack.empty()) {
             stack.push(new Node(val, val));
-        }
-        else {
+        } else {
             Node current = stack.peek();
-            if (val < current.min){
+            if (val < current.min) {
                 stack.push(new Node(val, val));
-            }
-            else stack.push(new Node(val, current.min));
+            } else stack.push(new Node(val, current.min));
         }
     }
 

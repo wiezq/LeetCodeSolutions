@@ -5,49 +5,50 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    private static boolean playerSwitch = true;
+    private static int playerSwitch = 1;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Character[][] map = {
+    private Character[][] map;
+
+    private final Scanner sc;
+
+    private boolean gameOver = false;
+
+    TicTacToe() {
+        initMap();
+        sc = new Scanner(System.in);
+
+    }
+
+    private void initMap() {
+        map = new Character[][]{
                 {'1', '2', '3'},
                 {'4', '5', '6'},
                 {'7', '8', '9'}
         };
+
+    }
+
+    public static void main(String[] args) {
+        TicTacToe ttt = new TicTacToe();
+        ttt.startGame();
+    }
+
+    public void startGame() {
         for (int i = 0; i < 9; i++) {
-            printMap(map);
-            if (playerSwitch) {
-                System.out.println("Player 1");
-                System.out.println("Choose number and place \"o\"");
-                int number = sc.nextInt() - 1;
-                while (number < 0 || number > 9 || map[number / 3][number % 3].equals('o') || map[number / 3][number % 3].equals('x')) {
-                    System.out.println("Player 1");
-                    System.out.println("Choose number and place \"x\"");
-                    number = sc.nextInt() - 1;
-                }
-                map[number / 3][number % 3] = 'o';
-                playerSwitch = false;
-                if (isGameOver(map)) {
-                    for (Character[] subMap : map) {
-                        System.out.println(Arrays.deepToString(subMap));
-                    }
-                    System.out.println("Player 1 won");
+            printMap();
+            if (playerSwitch == 1) {
+                playerMove(playerSwitch);
+                if (gameOver) {
+                    printMap();
+                    System.out.printf("Player %s won\n", playerSwitch);
                     break;
                 }
+
             } else {
-                System.out.println("Player 2");
-                System.out.println("Choose number and place \"x\"");
-                int number = sc.nextInt() - 1;
-                while (number < 0 || number > 9 || map[number / 3][number % 3].equals('o') || map[number / 3][number % 3].equals('x')) {
-                    System.out.println("Player 2");
-                    System.out.println("Choose number and place \"x\"");
-                    number = sc.nextInt() - 1;
-                }
-                map[number / 3][number % 3] = 'x';
-                playerSwitch = true;
-                if (isGameOver(map)) {
-                    printMap(map);
-                    System.out.println("Player 2 won");
+                playerMove(playerSwitch);
+                if (gameOver) {
+                    printMap();
+                    System.out.printf("Player %d won\n", playerSwitch);
                     break;
                 }
             }
@@ -56,34 +57,48 @@ public class TicTacToe {
         System.out.println("Game over");
     }
 
-    private static void printMap(Character[][] map) {
+    private void playerMove(int player) {
+        System.out.printf("Player %d\n", player);
+        System.out.printf("Choose number and place \"%s\"\n", player == 1 ? "x" : "o");
+        int number = sc.nextInt() - 1;
+        while (number < 0 || number > 9 || map[number / 3][number % 3].equals('o') || map[number / 3][number % 3].equals('x')) {
+            System.out.printf("Player %d\n", player);
+            System.out.printf("Choose number and place \"%s\"\n", player == 1 ? "x" : "o");
+            number = sc.nextInt() - 1;
+        }
+        map[number / 3][number % 3] = player == 1 ? 'x' : 'o';
+        if (isGameOver(map)) return;
+        playerSwitch = player == 1 ? 2 : 1;
+
+    }
+
+    private void printMap() {
         for (Character[] subMap : map) {
             System.out.println(Arrays.deepToString(subMap));
         }
     }
 
-    public static boolean isGameOver(Character[][] map) {
-        //Check rows
-        for (Character[] submap : map) {
-            int sum = 0;
-            for (int i = 0; i < 3; i++) {
-                sum += submap[i];
-            }
-            if (sum == 360 || sum == 333) {
-                return true;
-            }
+    private boolean isGameOver(Character[][] map) {
+        if (gameOver) return true;
 
+        if (gameOverRowCheck(map)) {
+            gameOver = true;
+            return true;
         }
-        //check columns
-        for (int i = 0; i < 3; i++) {
-            int sum = 0;
-            for (int j = 0; j < 3; j++) {
-                sum += map[j][i];
-            }
-            if (sum == 360 || sum == 333) {
-                return true;
-            }
+        if (gameOverColumnCheck(map)) {
+            gameOver = true;
+            return true;
         }
+
+        if (gameOverDiagonalCheck(map)) {
+            gameOver = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean gameOverDiagonalCheck(Character[][] map) {
         int sum = 0;
         int sum2 = 0;
         //Check diagonal
@@ -98,7 +113,33 @@ public class TicTacToe {
                 return true;
             }
         }
+        return false;
+    }
 
+    private boolean gameOverColumnCheck(Character[][] map) {
+        for (int i = 0; i < 3; i++) {
+            int sum = 0;
+            for (int j = 0; j < 3; j++) {
+                sum += map[j][i];
+            }
+            if (sum == 360 || sum == 333) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean gameOverRowCheck(Character[][] map) {
+        for (Character[] submap : map) {
+            int sum = 0;
+            for (int i = 0; i < 3; i++) {
+                sum += submap[i];
+            }
+            if (sum == 360 || sum == 333) {
+                return true;
+            }
+
+        }
         return false;
     }
 
