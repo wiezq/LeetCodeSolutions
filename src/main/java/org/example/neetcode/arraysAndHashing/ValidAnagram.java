@@ -12,17 +12,17 @@ public class ValidAnagram {
      * are anagrams and false otherwise. To check if two strings are anagrams, the method creates two
      * HashMaps that store the frequency of each character in each string. If the HashMaps are equal,
      * the two strings are anagrams.</p>
-     * <p>Time complexity: O(n)</p>
      * <p>Explanation: The method iterates through the two input strings using two separate loops, which results
      * in a time complexity of O(n), where n is the length of the strings. The putIfAbsent() and computeIfPresent()
      * methods of the HashMap have an average time complexity of O(1), so the overall time complexity of the method
      * is O(n).</p>
-     * <p>Space complexity: O(n)</p>
      * <p>Explanation: The method creates two HashMaps to store the frequency of each character in each string. In the
      * worst-case scenario, all characters in both strings are unique, resulting in a space complexity of O(n) for
      * each HashMap. Additionally, it uses a few string variables that take constant space, so their contribution
      * to the space complexity is negligible compared to the HashMaps.</p>
      *
+     * <p>Space complexity: O(n)</p>
+     * <p>Time complexity: O(n)</p>
      * @param s the first string to check for anagrams
      * @param t the second string to check for anagrams
      * @return true if the two strings are anagrams, false otherwise
