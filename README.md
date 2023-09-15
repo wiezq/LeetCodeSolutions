@@ -13,3 +13,5 @@ Problem solving on leetcode
 [36. Valid Sudoku - medium](https://github.com/wiezq/LeetCodeSolution/blob/main/src/main/java/leetcode/arraysAndHashing/ValidSudoku.java)<br>
 [271. Encode and Decode Strings - medium](https://github.com/wiezq/LeetCodeSolution/blob/main/src/main/java/leetcode/arraysAndHashing/EncodeAndDecode.java)<br>
 [128. Longest Consecutive Sequence- medium](https://github.com/wiezq/LeetCodeSolution/blob/main/src/main/java/leetcode/arraysAndHashing/LongestConsecutiveSequence.java)<br>
+
+//TODO: need to add more links to solutions
